@@ -95,6 +95,66 @@ skip-table-deltas = yes
 ```
 
 
+## Token transfers
+
+The example in `token_transfers` folder is demonstrating a typical
+task: an owner of an account (such as an exchange or a web shop) needs
+to receive notifications as soon as tokens are transferred to or from
+it, and also when these transfers become irreversible.
+
+The example sets up a simple table in a MariaDB database where token
+transfers are recorded, and there's a flag indicating if the
+transaction passed into an irreversible block.
+
+This example needs two Chronicle instances: one in normal scan mode,
+and the other one with `irreversible-inly` enabled. Below are
+recommended Chronicle configurations:
+
+
+File: `/srv/telos/chronicle-config/config.ini`
+
+```
+host = 127.0.0.1
+port = 8081
+mode = scan
+plugin = exp_ws_plugin
+exp-ws-host = 127.0.0.1
+exp-ws-port = 8855
+exp-ws-bin-header = true
+skip-block-events = true
+exp-ws-max-unack = 200
+skip-table-deltas = yes
+
+```
+
+File: `/srv/telos-irrev/chronicle-config/config.ini`
+
+```
+host = 127.0.0.1
+port = 8081
+mode = scan
+plugin = exp_ws_plugin
+exp-ws-host = 127.0.0.1
+exp-ws-port = 8856
+exp-ws-bin-header = true
+skip-block-events = true
+irreversible-only = true
+exp-ws-max-unack = 200
+skip-table-deltas = yes
+```
+
+Once the database set up and "npm install" is executed, the script needs at least one account name to monitor. Multiple accounts can be specified as comma-separated argument of `--accounts` option:
+
+```
+node token_transfers_consumer.js --accounts=avogadrosnum,cc32dninexxx
+```
+
+It is important to note that there's no synchronization between two
+Chronicle processes, and if they are catching up through the history,
+both are seeing irreversible transactions. That's why there's IGNORE
+and ON DUPLICATE KEY UPDATE options in SQL queries.
+
+
 
 
 
