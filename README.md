@@ -1,8 +1,8 @@
 # chronicle-consumer NPM examples
 
 This repository contains a number of examples and usage patterns for
-[`chronicle-consumer` module for
-Node.js](https://www.npmjs.com/package/chronicle-consumer).
+[`chronicle-consumer`](https://www.npmjs.com/package/chronicle-consumer)
+module for Node.js.
 
 This development is sponsored by [Telos
 blockchain](https://www.telos.net/) community as part of [Worker
@@ -72,7 +72,7 @@ to use.
 The scripts use the following settings as default, and they are
 possible to change with command-line options:
 
-* Blocchain name: `telos`;
+* Blockchain name: `telos`;
 * Websocket server binding address: `0.0.0.0`;
 * Websocket server port for Chronicle to connect: 8855;
 * Acknowledgement every 10 blocks;
