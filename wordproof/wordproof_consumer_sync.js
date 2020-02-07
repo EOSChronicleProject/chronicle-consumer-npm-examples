@@ -29,7 +29,7 @@ var connection = mysql.createConnection({
     database : 'wordproof'
 });
  
-connection.connect(function(err) {if (err) throw error;});
+connection.connect(function(err) {if (err) throw err;});
 
 const server = new ConsumerServer({host: program.host,
                                    port: program.port,

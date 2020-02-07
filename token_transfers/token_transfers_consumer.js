@@ -20,7 +20,7 @@ program.accounts.split(',').forEach(function(c) {
 });
 
 for(let value of accountsMap.keys()) {
-    console.log('Scanning for wordproof contract: ' + value);
+    console.log('Scanning transfers for: ' + value);
 }
 
 
@@ -33,7 +33,7 @@ var connection = mysql.createConnection({
     database : 'transfers'
 });
  
-connection.connect(function(err) {if (err) throw error;});
+connection.connect(function(err) {if (err) throw err;});
 
 const serverHead = new ConsumerServer({host: program.host,
                                        port: program.portHead,
