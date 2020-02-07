@@ -156,6 +156,35 @@ and ON DUPLICATE KEY UPDATE options in SQL queries.
 
 
 
+## Hash-it service by Telos UK [publicdomain.live](https://www.publicdomain.live/)
+
+The service implements a fairly simple, yet powerful idea: link
+arbitrary content together, using blockchain as a backend, and create
+a network of meta-data. For example, an article is publushed on
+Medium, and comments and follow-ups could be on Twitter or
+Github. Anyone can add a link by referring to the hash of the original
+link, simply by transferring a tiny amount of tokens on Telos network.
+
+Token transfers with `publicdomain` as recipients need to be formatted
+properly: first, an uppercase SHA256 hash of the original item, then
+space, and content target, such as an URL or another hash if you need
+to inter-link the objects.
+
+The `publicdomain` folder contains a simple example application: the
+HASHLINKS table in a MariaDB database contains all hash references
+that `publicdomain` receives on Telos. It also defines a few indexes
+for quick searching.
+
+The consumer script is catching all transfers from Chronicle input and
+stores them in a database. In case of a microfork, corresponding
+entries are erased and written again with new blocks.
+
+
+
+
+
+
+
 
 
 
