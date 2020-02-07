@@ -156,7 +156,7 @@ and ON DUPLICATE KEY UPDATE options in SQL queries.
 
 
 
-## Hash-it service by Telos UK [publicdomain.live](https://www.publicdomain.live/)
+## Hash-it service by Telos UK ( [publicdomain.live](https://www.publicdomain.live/) )
 
 The service implements a fairly simple, yet powerful idea: link
 arbitrary content together, using blockchain as a backend, and create
