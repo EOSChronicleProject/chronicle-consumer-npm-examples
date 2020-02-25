@@ -28,7 +28,7 @@ the Ubuntu 18.04 installation for Chronicle, which requires additional
 steps.
 
 In addition to Chronicle and nodeos setup, MariaDB server and Node.js
-12.x are installed. The examples shoudl also run flawlessly under
+12.x are installed. The examples should also run flawlessly under
 Node.js 13.x.
 
 ```
@@ -36,7 +36,9 @@ apt update && apt install -y mariadb-server
 
 curl -sL https://deb.nodesource.com/setup_12.x | bash -
 apt install -y nodejs
-cd /opt/eosio_light_api/wsapi
+cd /opt
+git clone https://github.com/EOSChronicleProject/chronicle-consumer-npm-examples.git
+cd chronicle-consumer-npm-examples/token_transfers
 npm install
 ```
 
