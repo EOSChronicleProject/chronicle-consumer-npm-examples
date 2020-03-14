@@ -1,5 +1,9 @@
 # chronicle-consumer NPM examples
 
+[Chronicle](https://github.com/EOSChronicleProject/eos-chronicle) is a
+software package for receiving and decoding the updates from an EOSIO
+blockchain, for historical and real-time data.
+
 This repository contains a number of examples and usage patterns for
 [`chronicle-consumer`](https://www.npmjs.com/package/chronicle-consumer)
 module for Node.js.
@@ -8,19 +12,13 @@ This development is sponsored by [Telos
 blockchain](https://www.telos.net/) community as part of [Worker
 Proposal #95](https://chainspector.io/governance/worker-proposals/95).
 
-[Chronicle](https://github.com/EOSChronicleProject/eos-chronicle) is a
-software package for receiving and decoding the data flow that is
-exported by `state_history_plugin` of `nodeos`, the blockchain node
-daemon [developed by Block One](https://developers.eos.io/).
+A [detailed
+tutorial](https://github.com/EOSChronicleProject/chronicle-tutorial)
+helps a dApp developer set up their server infrastructure and start
+collecting the blockchain data.
+
 
 ## Chronicle setup
-
-A [separate
-repository](https://github.com/EOSChronicleProject/chronicle-tutorial)
-will provide a tutorial for setting up and troubleshooting a Chronicle
-installation. For the time being, refer to [Chronicle
-README](https://github.com/EOSChronicleProject/eos-chronicle/blob/master/README.md)
-for detailed instructions.
 
 All examples were tested under Ubuntu 18.10 server. Later versions of
 Ubuntu should also work. If Ubuntu 18.04 is your only option, follow
@@ -28,7 +26,7 @@ the Ubuntu 18.04 installation for Chronicle, which requires additional
 steps.
 
 In addition to Chronicle and nodeos setup, MariaDB server and Node.js
-12.x are installed. The examples shoudl also run flawlessly under
+12.x are installed. The examples should also run flawlessly under
 Node.js 13.x.
 
 ```
@@ -36,7 +34,9 @@ apt update && apt install -y mariadb-server
 
 curl -sL https://deb.nodesource.com/setup_12.x | bash -
 apt install -y nodejs
-cd /opt/eosio_light_api/wsapi
+cd /opt
+git clone https://github.com/EOSChronicleProject/chronicle-consumer-npm-examples.git
+cd chronicle-consumer-npm-examples/token_transfers
 npm install
 ```
 
